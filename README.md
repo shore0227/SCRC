@@ -83,6 +83,7 @@ com.miHoYo.Yuanshen
 com.minitech.miniworld
 com.minitech.miniworld.m4399
 com.netease.dwrg
+com.netease.dwrg.m4399
 com.netease.dwrg.nearme.gamecenter
 com.netease.dwrg5.vivo
 com.netease.l22
