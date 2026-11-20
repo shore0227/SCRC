@@ -59,6 +59,7 @@ SCRC 旨在不破坏 ColorOS 官方调度的前提下，通过注入云控配置
 - 战双帕弥什
 
 ### SM8750
+- 和平精英
 - 原神
 
 ### SM8845
@@ -126,6 +127,7 @@ com.vng.pubgmobile
 
 #### SM8750
 ```
+com.tencent.tmgp.pubgmhd
 com.miHoYo.Yuanshen
 ```
 
