@@ -33,13 +33,16 @@ SCRC 旨在不破坏 ColorOS 官方调度的前提下，通过注入云控配置
 - 光遇
 - 和平精英
 - 火影忍者
+- 魂斗罗：归来
 - 金铲铲之战
-- 绝区零
+- 绝区零 (官服/国际服)
 - 洛克王国
 - 鸣潮（官服/B服/国际服）
 - 迷你世界 (官服/4399服)
+- 明日方舟
+- 明日方舟: 终末地 (官服/B服)
 - 逆战未来
-- PUBG Mobile（全球服/日韩服/台服/越南服/印度服/测试服）
+- PUBG Mobile（全球服/日韩服/台服/越南服/印度服/测试服/轻量服）
 - QQ飞车
 - 王者荣耀（官服/体验服/国际服）
 - 无畏契约手游
@@ -69,6 +72,9 @@ com.axlebolt.standoff2.huawei
 com.axlebolt.standoff2
 com.garena.game.codm
 com.hottagames.yh.laohu
+com.hypergryph.arknights
+com.hypergryph.endfield
+com.HoYoverse.Nap
 com.kurogame.haru.hero
 com.kurogame.mingchao.bilibili
 com.kurogame.mingchao
@@ -97,12 +103,14 @@ com.rekoo.pubgm
 com.sofunny.Sausage
 com.tencent.ig
 com.tencent.igce
+com.tencent.igfit
 com.tencent.jkchess
 com.tencent.KiHan
 com.tencent.lolm
 com.tencent.mf.uam
 com.tencent.nrc
 com.tencent.rmcn
+com.tencent.shootgame
 com.tencent.tmgp.cf
 com.tencent.tmgp.cod
 com.tencent.tmgp.codev
