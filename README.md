@@ -143,6 +143,46 @@ com.tencent.tmgp.sgame
   ```
 - 支持 `.enc` 后缀（默认配置）以及 `.json` 后缀（明文 json）
 - 若添加 `.json` 配置，请确保文件名为游戏包名，且 JSON 格式正确
+
+## 关于渠道服适配
+
+若需适配渠道服，目前有两种方式：
+
+- 在配置文件目录中添加渠道服游戏的配置文件
+
+  注意，不能只改文件名，而是要使用专门修改过的文件，否则注入程序判定为该文件失效。
+
+- 使用模块自带的 `match.json` 配置文件添加渠道服包名
+
+  该配置文件位于
+
+  ```text
+  $MODDIR/
+  ├── bin/
+  │   └── inject
+  └── match.json
+  ```
+
+  配置文件格式为
+
+  ```json
+  {
+    "leader_package_name_1": [
+      "member_package_name_1"
+    ],
+    "leader_package_name_2": [
+      "member_package_name_1",
+      "member_package_name_2"
+    ]
+  }
+  ```
+
+  其中，`leader_package_name` 为主包名，适配列表中必须包含该配置才生效
+
+  `member_package_name` 为渠道服包名，注入程序匹配到该渠道服时会使用其对应的 `leader_package_name` 配置
+
+  注意，`match.json` 填写时需遵循 JSON 格式
+
  
 ## 关于掉风驰 / 风驰异常
 
@@ -154,26 +194,42 @@ com.tencent.tmgp.sgame
 - KernelSU 用户请更新至最新版 KernelSU
 
 ## 关于二改
-- inject 注入程序可用于其他项目
-- 可使用明文 .json 文件
-- 使用时需确保模块中存在以下结构
-```
-$MODDIR/
-├── bin/
-│   └── inject
-└── encrypted_oplus-config/
-    ├── package_name1.enc
-    └── package_name2.json
-```
-- 使用当前模块框架时，若需添加配置/适配其他SOC平台，请在如下位置进行添加
-```
-$MODDIR/
-└── config/
-    ├── $SOC.MODEL_1/
-    │   ├── package_name1.enc
-    │   └── package_name2.json
-    └── $SOC.MODEL_2/
-        ├── package_name3.enc
-        └── package_name4.json
-```
-- 发布二改版本请征求原作者意见，并注明原作者
+
+- `inject` 注入程序允许用于其它类似项目，但需注明原作者。
+
+  可使用明文 `.json` 文件。
+
+  使用时需确保模块中存在以下结构
+
+  ```text
+  $MODDIR/
+  ├── bin/
+  │   └── inject
+  └── encrypted_oplus-config/
+      ├── package_name1.enc
+      └── package_name2.json
+  ```
+
+    可选添加 `match.json`，用于渠道服适配
+
+  ```text
+  $MODDIR/
+  ├── bin/
+  │   └── inject
+  └── match.json
+  ```
+
+- 使用当前模块框架进行二改时，若需添加配置/适配其他 SOC 平台，请在如下位置进行添加
+
+  ```text
+  $MODDIR/
+  └── config/
+      ├── $SOC.MODEL_1/
+      │   ├── package_name1.enc
+      │   └── package_name2.json
+      └── $SOC.MODEL_2/
+          ├── package_name3.enc
+          └── package_name4.json
+  ```
+
+  发布基于当前模块框架的二改版本时需征求原作者意见，并注明原作者
