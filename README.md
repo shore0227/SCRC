@@ -195,6 +195,15 @@ com.tencent.tmgp.sgame
 - 请勿开启 Scene 核心分配（游戏中）
 - KernelSU 用户请更新至最新版 KernelSU
 
+## 安装时提示 cosa database 缺失
+
+Magisk 31+ / Android 16 上从 Magisk App 安装时，安装器进程的 `/data/data` 是隔离的空 tmpfs，模块的安装脚本会误报数据库缺失（数据库本身正常）。可先尝试：
+
+- 在 root 终端执行 `magisk --install-module <zip>` 安装；
+- 或使用包含安装器沙箱兼容补丁的构建。
+
+根因、补丁与验证记录见 [docs/magisk31-installer-sandbox.md](docs/magisk31-installer-sandbox.md)。
+
 ## 关于二改
 
 - `inject` 注入程序允许用于其它类似项目，但需注明原作者。

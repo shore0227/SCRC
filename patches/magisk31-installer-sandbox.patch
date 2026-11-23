@@ -1,0 +1,26 @@
+diff --git a/script/scrc_setup.sh b/script/scrc_setup.sh
+index 65f6d3a..6131132 100644
+--- a/script/scrc_setup.sh
++++ b/script/scrc_setup.sh
+@@ -34,9 +34,19 @@ if [ "$install" = "1" ]; then
+     fi
+   done
+ 
++  DB_SANDBOX=0
++  if [ "$DB_FOUND" -ne 1 ] && /system/bin/grep -q ' /data/data .* - tmpfs ' /proc/self/mountinfo 2>/dev/null; then
++    DB_SANDBOX=1
++    DB_FOUND=1
++    DB_PATH="$DB_PATH1"
++  fi
++
+   if [ "$DB_FOUND" -eq 1 ]; then
+-    DB_SIZE=$(du -sh "$DB_PATH" 2>/dev/null | awk '{print $1}')
+-    echo "存在"
++    if [ "$DB_SANDBOX" -eq 1 ]; then
++      echo "安装器沙箱内不可见（开机后由 inject 自动检测）"
++    else
++      echo "存在"
++    fi
+     sleep 1
+     echo "正在尝试恢复官调组件 ..."
+     sh "$MODDIR/script/restart_service.sh"
